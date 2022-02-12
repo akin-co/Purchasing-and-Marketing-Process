@@ -1,0 +1,249 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="FillDataTableAlimTipiColumn" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="io_DataTableSas" Type="InOutArgument(sd:DataTable)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1234,1687</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>FillDataTableAlimTipiColumn_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="28">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="38">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="FillDataTableAlimTipiColumn" sap:VirtualizedContainerService.HintSize="480,1622" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="WorkFlowName" />
+      <Variable x:TypeArguments="x:String" Default="[in_Config(&quot;MalzemeValueHizmet&quot;).ToString]" Name="MalzemeHizmetValue" />
+      <Variable x:TypeArguments="x:String" Default="[in_Config(&quot;MalzemeValueProje&quot;).ToString]" Name="MalzemeProjeValue" />
+      <Variable x:TypeArguments="x:String" Default="[in_Config(&quot;MalzemeValueMTF&quot;).ToString]" Name="MalzemeMTPValue" />
+      <Variable x:TypeArguments="x:String" Default="[in_Config(&quot;MalzemeValueYatirimMalzeme&quot;).ToString]" Name="MalzemeYatirimValue" />
+      <Variable x:TypeArguments="x:String" Default="[in_Config(&quot;MalzemeValueMStoklu&quot;).ToString]" Name="MalzemeMStokluValue" />
+      <Variable x:TypeArguments="x:String" Default="[in_Config(&quot;ColumnNameHesapTayinTipi&quot;).ToString]" Name="ColumnNameHesapTayinTipi" />
+      <Variable x:TypeArguments="x:String" Default="[in_Config(&quot;ColumnNameToBeAddedAlimTipi&quot;).ToString]" Name="ColumnNameAlimTipi" />
+      <Variable x:TypeArguments="x:String" Default="[in_Config(&quot;ColumnNameMalzemeAdi&quot;).ToString]" Name="ColumnNameMalzeme" />
+      <Variable x:TypeArguments="x:String" Default="[in_Config(&quot;AlimTipiQueryValueMStoklu&quot;).ToString]" Name="MalzemeQueryMStoklu" />
+      <Variable x:TypeArguments="x:String" Default="[in_Config(&quot;AlimTipiQueryValueYatirimMalzeme&quot;).ToString]" Name="MalzemeQueryYatirim" />
+      <Variable x:TypeArguments="x:String" Default="[in_Config(&quot;AlimTipiQueryValueMTF&quot;).ToString]" Name="MalzemeQueryMTFHesapTayinTipi" />
+      <Variable x:TypeArguments="x:String" Default="[in_Config(&quot;AlimTipiQueryValueHizmet&quot;).ToString]" Name="MalzemeQueryHizmet" />
+      <Variable x:TypeArguments="x:String" Default="[in_Config(&quot;AlimTipiQueryValueProje&quot;).ToString]" Name="MalzemeQueryProje" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign sap:VirtualizedContainerService.HintSize="438,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[WorkFlowName]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String" xml:space="preserve">FillDataTableAlimTipiColumn : </InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="438,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[WorkFlowName+ &quot; başlıyor.&quot;]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,1299" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <Sequence DisplayName="Main Try" sap:VirtualizedContainerService.HintSize="376,1072" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeCode ContinueOnError="{x:Null}" Code="io_DataTableSas.select(&quot;  [&quot;+in_ColumnNameMalzeme+&quot;]  like '&quot;+in_MalzemeDegeri+&quot;' Or  [&quot;+in_ColumnNameMalzeme+&quot;]  like '&quot;+in_MalzemeDegeriToLower+&quot;'&quot;).tolist().ForEach(Sub(row) row(in_ColumnNameAlimTipi)=in_AlimTipiValue)" DisplayName="Invoke code : M Stoklu" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+            <ui:InvokeCode.Arguments>
+              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_DataTableSas">
+                <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="io_DataTableSas" />
+              </InOutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ColumnNameMalzeme">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ColumnNameMalzeme" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ColumnNameAlimTipi">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ColumnNameAlimTipi" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_MalzemeDegeri">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="MalzemeQueryMStoklu+&quot;%&quot;" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_MalzemeDegeriToLower">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="MalzemeQueryMStoklu.tolower+&quot;%&quot;" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_AlimTipiValue">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="MalzemeMStokluValue" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ColumnNameHesapTayinTipi">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ColumnNameHesapTayinTipi" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_HesapTipiValue">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="MalzemeQueryMTFHesapTayinTipi" />
+              </InArgument>
+            </ui:InvokeCode.Arguments>
+          </ui:InvokeCode>
+          <ui:InvokeCode ContinueOnError="{x:Null}" Code="io_DataTableSas.select(&quot;  [&quot;+in_ColumnNameMalzeme+&quot;]  like '&quot;+in_MalzemeDegeri+&quot;' Or  [&quot;+in_ColumnNameMalzeme+&quot;]  like '&quot;+in_MalzemeDegeriToLower+&quot;'&quot;).tolist().ForEach(Sub(row) row(in_ColumnNameAlimTipi)=in_AlimTipiValue)" DisplayName="Invoke code : Yatirim Malzeme" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+            <ui:InvokeCode.Arguments>
+              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_DataTableSas">[io_DataTableSas]</InOutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ColumnNameMalzeme">[ColumnNameMalzeme]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ColumnNameAlimTipi">[ColumnNameAlimTipi]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_MalzemeDegeri">[MalzemeQueryYatirim+"%"]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_MalzemeDegeriToLower">[MalzemeQueryYatirim.tolower+"%"]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_AlimTipiValue">[MalzemeYatirimValue]</InArgument>
+            </ui:InvokeCode.Arguments>
+          </ui:InvokeCode>
+          <ui:InvokeCode ContinueOnError="{x:Null}" Code="io_DataTableSas.select(&quot; [&quot;+in_ColumnNameHesapTayinTipi+&quot;] ='&quot;+in_HesapTayinDegeri+&quot;' And  [&quot;+in_ColumnNameAlimTipi+&quot;]  IS NULL&quot;).tolist().ForEach(Sub(row) row(in_ColumnNameAlimTipi)=in_AlimTipiValue)" DisplayName="Invoke code : MTF Malzeme" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_3">
+            <ui:InvokeCode.Arguments>
+              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_DataTableSas">
+                <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="io_DataTableSas" />
+              </InOutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ColumnNameHesapTayinTipi">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ColumnNameHesapTayinTipi" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ColumnNameAlimTipi">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ColumnNameAlimTipi" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_AlimTipiValue">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="MalzemeMTPValue" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_HesapTayinDegeri">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="MalzemeQueryMTFHesapTayinTipi" />
+              </InArgument>
+            </ui:InvokeCode.Arguments>
+          </ui:InvokeCode>
+          <ui:InvokeCode ContinueOnError="{x:Null}" Code="io_DataTableSas.select(&quot;  [&quot;+in_ColumnNameMalzeme+&quot;]  like '&quot;+in_MalzemeDegeri+&quot;' Or  [&quot;+in_ColumnNameMalzeme+&quot;]  like '&quot;+in_MalzemeDegeriToLower+&quot;' AND [&quot;+in_ColumnNameHesapTayinTipi+&quot;]  &lt;&gt; '&quot;+in_HesapTipiValue+&quot;' &quot;).tolist().ForEach(Sub(row) row(in_ColumnNameAlimTipi)=in_AlimTipiValue)" DisplayName="Invoke code : Hizmet Malzeme" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_4">
+            <ui:InvokeCode.Arguments>
+              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_DataTableSas">[io_DataTableSas]</InOutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ColumnNameMalzeme">[ColumnNameMalzeme]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ColumnNameAlimTipi">[ColumnNameAlimTipi]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_MalzemeDegeri">[MalzemeQueryHizmet+"%"]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_MalzemeDegeriToLower">[MalzemeQueryHizmet.tolower+"%"]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_AlimTipiValue">[MalzemeHizmetValue]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ColumnNameHesapTayinTipi">[ColumnNameHesapTayinTipi]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_HesapTipiValue">[MalzemeQueryMTFHesapTayinTipi]</InArgument>
+            </ui:InvokeCode.Arguments>
+          </ui:InvokeCode>
+          <ui:InvokeCode ContinueOnError="{x:Null}" Code="io_DataTableSas.select(&quot;  [&quot;+in_ColumnNameMalzeme+&quot;]  like '&quot;+in_MalzemeDegeri+&quot;' Or  [&quot;+in_ColumnNameMalzeme+&quot;]  like '&quot;+in_MalzemeDegeriToLower+&quot;' AND [&quot;+in_ColumnNameHesapTayinTipi+&quot;]  &lt;&gt; '&quot;+in_HesapTipiValue+&quot;' &quot;).tolist().ForEach(Sub(row) row(in_ColumnNameAlimTipi)=in_AlimTipiValue)" DisplayName="Invoke code : Proje Malzeme" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_5">
+            <ui:InvokeCode.Arguments>
+              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_DataTableSas">
+                <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="io_DataTableSas" />
+              </InOutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ColumnNameMalzeme">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ColumnNameMalzeme" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ColumnNameAlimTipi">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ColumnNameAlimTipi" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_MalzemeDegeri">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="MalzemeQueryProje+&quot;%&quot;" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_MalzemeDegeriToLower">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="MalzemeQueryProje.tolower+&quot;%&quot;" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_AlimTipiValue">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="MalzemeProjeValue" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ColumnNameHesapTayinTipi">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ColumnNameHesapTayinTipi" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_HesapTipiValue">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="MalzemeQueryMTFHesapTayinTipi" />
+              </InArgument>
+            </ui:InvokeCode.Arguments>
+          </ui:InvokeCode>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Exception Handling" sap:VirtualizedContainerService.HintSize="376,66" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Error" Message="[WorkFlowName + &quot;Hata alındı. Sebebi : &quot; +exception.Message]" />
+              <Rethrow sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>
