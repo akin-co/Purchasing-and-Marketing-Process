@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1234,3556" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1240,2532" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
       <x:String>System.Activities</x:String>
@@ -34,7 +34,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="26">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="52">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -60,10 +60,11 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="498,3491" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="498,2467" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="Config" />
       <Variable x:TypeArguments="x:String" Name="WorkFlowName" />
@@ -87,7 +88,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="456,3399" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="456,2375" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -95,7 +96,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="Main Try" sap:VirtualizedContainerService.HintSize="418,3172" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="Main Try" sap:VirtualizedContainerService.HintSize="418,2148" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -117,23 +118,29 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:LogMessage>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ConfigReader workflow" sap:VirtualizedContainerService.HintSize="376,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Config\ConfigReader.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ConfigReader workflow" sap:VirtualizedContainerService.HintSize="376,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Config\ConfigReader.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_FilePath">C:\Users\Co\Documents\UiPath\SatınAlmaRaporlamaSüreci\Inputs\ConfigFile\Config.xlsx</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_ExcelSheetName">Config</InArgument>
-              <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_Config">[Config]</OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_FilePath">
+                <Literal x:TypeArguments="x:String">Inputs\ConfigFile\Config.xlsx</Literal>
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ExcelSheetName">
+                <Literal x:TypeArguments="x:String">Config</Literal>
+              </InArgument>
+              <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_Config">
+                <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
+              </OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <Sequence DisplayName="Initilaze Edilecekler" sap:VirtualizedContainerService.HintSize="376,1151" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Initilaze Edilecekler" sap:VirtualizedContainerService.HintSize="376,66" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -484,18 +491,10 @@
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke FillDataTableRapor2 workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_22" UnSafe="False" WorkflowFileName="DataTableOperations\FillDataTableRapor2.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                  <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                </InArgument>
-                <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_DatatableSas">
-                  <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="DataTableSas" />
-                </InOutArgument>
-                <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_DatatableRapor2">
-                  <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="DataTableRapor2" />
-                </InOutArgument>
-                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DistinctDataTableofSas">
-                  <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="DataTableDistinctSasNumber" />
-                </InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_DatatableSas">[DataTableSas]</InOutArgument>
+                <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_DatatableRapor2">[DataTableRapor2]</InOutArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DistinctDataTableofSas">[DataTableDistinctSasNumber]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </Sequence>
@@ -508,12 +507,8 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke DatatableOperationsRemoveUnnecessaryColumns workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_23" UnSafe="False" WorkflowFileName="DataTableOperations\DatatableOperationsRemoveUnnecessaryColumns.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                  <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                </InArgument>
-                <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_DatatableSas">
-                  <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="DataTableSas" />
-                </InOutArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_DatatableSas">[DataTableSas]</InOutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </Sequence>
@@ -526,12 +521,8 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke FolderorFileExistAndCreate workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="FolderorFileOperations\FolderorFileExistAndCreate.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                  <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                </InArgument>
-                <InOutArgument x:TypeArguments="x:String" x:Key="io_FolderPath">
-                  <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="FolderPathOfReportsExcel" />
-                </InOutArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_FolderPath">[FolderPathOfReportsExcel]</InOutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <Assign DisplayName="Assign : Report Excel File Path" sap:VirtualizedContainerService.HintSize="379,60" sap2010:WorkflowViewState.IdRef="Assign_11">
@@ -542,23 +533,13 @@
                 <InArgument x:TypeArguments="x:String">[path.Combine(FolderPathOfReportsExcel, config("ReportExcelFileName").tostring)]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Rapor 1&#xD;&#xA;" DisplayName="Invoke WriteDataTableToExcel workflow" sap:VirtualizedContainerService.HintSize="379,93" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_25" UnSafe="False" WorkflowFileName="ExcelOperations\WriteDataTableToExcel.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Rapor 1&#xA;" DisplayName="Invoke WriteDataTableToExcel workflow" sap:VirtualizedContainerService.HintSize="379,93" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_25" UnSafe="False" WorkflowFileName="ExcelOperations\WriteDataTableToExcel.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                  <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                </InArgument>
-                <InOutArgument x:TypeArguments="x:String" x:Key="io_FilePathOfExcel">
-                  <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="ExcelReportFileName" />
-                </InOutArgument>
-                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_Datatable">
-                  <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="DataTableSas" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;SheetNameRapor1&quot;).tostring" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_DatatableTanim">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;TanimRapor1&quot;).tostring" />
-                </InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_FilePathOfExcel">[ExcelReportFileName]</InOutArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_Datatable">[DataTableSas]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">[Config("SheetNameRapor1").tostring]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_DatatableTanim">[Config("TanimRapor1").tostring]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -570,21 +551,11 @@
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Rapor 2&#xA;" DisplayName="Invoke WriteDataTableToExcel workflow" sap:VirtualizedContainerService.HintSize="379,154" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_27" UnSafe="False" WorkflowFileName="ExcelOperations\WriteDataTableToExcel.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                  <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                </InArgument>
-                <InOutArgument x:TypeArguments="x:String" x:Key="io_FilePathOfExcel">
-                  <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="ExcelReportFileName" />
-                </InOutArgument>
-                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_Datatable">
-                  <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="DataTableRapor2" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;SheetNameRapor2&quot;).tostring" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_DatatableTanim">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;TanimRapor2&quot;).tostring" />
-                </InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_FilePathOfExcel">[ExcelReportFileName]</InOutArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_Datatable">[DataTableRapor2]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">[Config("SheetNameRapor2").tostring]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_DatatableTanim">[Config("TanimRapor2").tostring]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -602,24 +573,12 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SendMailMessage workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_28" UnSafe="False" WorkflowFileName="MailOperations\SendMailMessage.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                  <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_FilePathForAttachment">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ExcelReportFileName" />
-                </InArgument>
-                <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_ListOfAttachment">
-                  <mva:VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="ListOfAttachment" />
-                </InOutArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_ToAdress">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="mailAdressTo" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_Subject">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;SendMailArgumentsSubject&quot;).tostring" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_MailBody">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="string.format(config(&quot;SendMailArgumentsBody&quot;).tostring, date.Now.tostring(&quot;dd.MM.yyyy&quot;))" />
-                </InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_FilePathForAttachment">[ExcelReportFileName]</InArgument>
+                <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_ListOfAttachment">[ListOfAttachment]</InOutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_ToAdress">[mailAdressTo]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_Subject">[Config("SendMailArgumentsSubject").tostring]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_MailBody">[string.format(config("SendMailArgumentsBody").tostring, date.Now.tostring("dd.MM.yyyy"))]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </Sequence>
